@@ -84,8 +84,6 @@ function partialApplicationDisplay( render, containerName ) {
     filteredDiv.innerHTML += typeof render === "object" ? render.join("") : render;
 }
 
-const compose = ( f, g ) => ( x ) => f( g( x ) );
-
 const displayHeader = leftApplication( partialApplicationDisplay, getHeader() );
 displayHeader(".filter-table");
 
