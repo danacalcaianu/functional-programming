@@ -69,7 +69,16 @@ function getHeader() {
         </tr>`
 );
 
+// Display with currying
+const display = (render) => (id) => {
+    const filteredDiv = document.querySelector( id );
+    filteredDiv.innerHTML += typeof render === "object" ? render.join("") : render;
+}
 
+display( getHeader() )( ".filter-table" );
+display( getData( issues ) )( ".filter-table" );
+
+// Display with Partial Application
 function partialApplicationDisplay( render, containerName ) {
     const filteredDiv = document.querySelector( containerName );
     filteredDiv.innerHTML += typeof render === "object" ? render.join("") : render;
@@ -83,14 +92,5 @@ displayHeader(".filter-table");
 const displayBody = leftApplication( partialApplicationDisplay, getData(issues) );
 displayBody(".filter-table");
 
-
-// Display with currying
-const display = (render) => (id) => {
-    const filteredDiv = document.querySelector( id );
-    filteredDiv.innerHTML += typeof render === "object" ? render.join("") : render;
-}
-
-display( getHeader() )( ".filter-table" );
-display( getData( issues ) )( ".filter-table" );
 
 
