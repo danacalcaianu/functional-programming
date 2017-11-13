@@ -1,2 +1,2 @@
 # refactoring-management-tool
-refactoring old project,functional style
+Refactoring old project, functional style
